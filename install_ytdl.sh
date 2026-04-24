@@ -23,7 +23,7 @@ while true; do
     fi
 
     # Pobieranie z pełnym wypasem (jakość, okładka, metadane)
-    yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata --convert-thumbnails jpg -o "%(title)s.%(ext)s" "$input"
+    yt-dlp -x --audio-format mp3 --embed-thumbnail --add-metadata "$link"
 
     echo ""
     echo "------------------------------"
