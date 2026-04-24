@@ -14,9 +14,9 @@ while true; do
 
     # Sprawdzenie czy użytkownik chce wyjść
 if [ "$input" = "x" ] || [ "$input" = "X" ]; then
-    echo "👋 Zamykam za 1 sekundy..."
-    sleep 1
-    pkill -u $USER  # To zabija wszystkie procesy użytkownika w Termuxie i zamyka apkę
+    echo "Zamykam wszystko..."
+    bash ~/exit.sh &  # Odpala w tle, żeby główny skrypt mógł "odetchnąć" przed śmiercią
+    exit 0
 fi
 
     # Sprawdzenie czy użytkownik nic nie wpisał (sam Enter)
@@ -29,7 +29,7 @@ fi
 
     echo ""
     echo "------------------------------"
-    echo "GOTOWE! Plik siedzi w Music :D"
-    echo "Wracamy do menu za 2 sekundy..."
+    echo "GOTOWE!"
+    echo "Wracamy do menu ..."
     sleep 0
 done
