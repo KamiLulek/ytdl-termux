@@ -51,6 +51,8 @@ while true; do
         continue
     fi
 
+    clear
+    
     echo ""
     echo "════════════════════════════════════════"
     echo "               Pobieranie               "
