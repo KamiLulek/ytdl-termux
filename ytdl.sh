@@ -53,9 +53,7 @@ while true; do
     # Pobieranie i wyświetlenie nazwy pliku
         # Pobieranie z lepszym wyświetlaniem dla playlist
     yt-dlp -x --ignore-errors --audio-format mp3 --embed-thumbnail --add-metadata \
-        --exec 'echo "---------------------------------"; 
-		echo "✓ Pobrano: $(basename {})"; 
-		echo "---------------------------------"' "$input"
+        --exec '~/output.sh {}' "$input"
 
     echo ""
     echo ""
