@@ -51,12 +51,12 @@ while true; do
     echo ""
 
     # Pobieranie
-    yt-dlp -x --verbose --no-check-certificate --ignore-errors --audio-format mp3 --embed-thumbnail --add-metadata "$input"
-
+    yt-dlp -x --ignore-errors --audio-format mp3 --embed-thumbnail --add-metadata \
+    --print after_move:filepath "$input" | grep '\.mp3$' | while read -r file; do
     echo ""
     echo "---------------------------------"
-    echo "         !!! POBRANE !!!         "
+    echo "Pobrano: $(basename "$file")"
     echo "---------------------------------"
     echo ""
-
+	
 done
