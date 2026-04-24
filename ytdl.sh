@@ -18,10 +18,10 @@ while true; do
     
     read -r input
 
-    # Wyjście przez 'x'
+    # Wyjście przez 'x' - odpala exit.sh i wychodzi z pętli
     if [ "$input" = "x" ] || [ "$input" = "X" ]; then
-        echo "👋 Nara! Zamykam Termuxa..."
-        sleep 1
+        echo "👋 Zamykam Termuxa za 3 sekundy..."
+        ~/exit.sh &
         exit 0
     fi
 
