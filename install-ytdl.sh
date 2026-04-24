@@ -14,7 +14,8 @@ if [ -n "$FILE" ] && [ -f "$FILE" ]; then
     sleep 0
     clear
     sleep 0
-    echo ""
+    echo "════════════════════════════════════════"
+    echo "                 Pobrano                "
     echo "════════════════════════════════════════"
     echo "  $(basename "$FILE")"
     echo "════════════════════════════════════════"
@@ -45,10 +46,10 @@ is_youtube_link() {
 
 # Pętla działająca w nieskończoność
 while true; do
-    echo "╔══════════════════════════════════════╗"
-    echo "║         YT-DLP MP3 DOWNLOADER        ║"
-    echo "║   Wklej link do YT, 'x' zeby wyjsc.  ║"
-    echo "╚══════════════════════════════════════╝"
+    echo "════════════════════════════════════════"
+    echo "          YT-DLP MP3 DOWNLOADER         "
+    echo "    Wklej link do YT, 'x' zeby wyjsc.   "
+    echo "════════════════════════════════════════"
     echo ""
     read -r input
 
@@ -63,9 +64,9 @@ while true; do
     # Sprawdzenie czy użytkownik nic nie wpisał (sam Enter)
     if [ -z "$input" ]; then
         echo ""
-        echo "╔══════════════════════════════════════╗"
-        echo "║        BRAK lub ZłY link YT!         ║"
-        echo "╚══════════════════════════════════════╝"
+        echo "════════════════════════════════════════"
+        echo "         BRAK lub ZłY link YT!          "
+        echo "════════════════════════════════════════"
         echo ""
         continue
     fi
@@ -73,16 +74,16 @@ while true; do
     # Sprawdzenie czy to poprawny link YouTube
     if ! is_youtube_link "$input"; then
         echo ""
-        echo "╔══════════════════════════════════════╗"
-        echo "║        BRAK lub ZłY link YT!         ║"
-        echo "╚══════════════════════════════════════╝"
+        echo "════════════════════════════════════════"
+        echo "         BRAK lub ZłY link YT!          "
+        echo "════════════════════════════════════════"
         echo ""
         continue
     fi
 
     echo ""
-    echo "═════════════ Pobieranie ═══════════════"
-    echo "$input"
+    echo "════════════════════════════════════════"
+    echo "               Pobieranie               "
     echo "════════════════════════════════════════"
     echo ""
 
@@ -111,9 +112,10 @@ source .bashrc
 sleep 0
 
 echo ""
-echo "╔══════════════════════════════════════╗"
-echo "║         Instalacja zakończona        ║"
-echo "╠══════════════════════════════════════╣"
-echo "║       Wpisz 'ytdl' żeby odpalić      ║"
-echo "╚══════════════════════════════════════╝"
+echo "════════════════════════════════════════"
+echo "          Instalacja zakończona         "
+echo "        Wpisz 'ytdl' żeby odpalić       "
+echo "════════════════════════════════════════"
 echo ""
+
+sleep 2
