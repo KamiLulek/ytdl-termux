@@ -50,13 +50,25 @@ while true; do
     echo "Pobieranie: $input"
     echo ""
 
-    # Pobieranie z pełnym wypasem (jakość, okładka, metadane)
-    yt-dlp -x --audio-format mp3 --embed-thumbnail --add-metadata "$input"
+    # Pobieranie z pełnym wypasem i zapisanie nazwy pliku
+    saved_file=$(yt-dlp -x --audio-format mp3 --embed-thumbnail --add-metadata \
+        --print after_move:filepath "$input" 2>&1 | tail -1)
 
-    echo ""
-    echo "---------------------------------"
-    echo "         !!! POBRANE !!!         "
-    echo "---------------------------------"
+    # Sprawdzenie czy pobieranie się udało
+    if [ $? -eq 0 ] && [ -n "$saved_file" ] && [ -f "$saved_file" ]; then
+        # Wyciągnięcie samej nazwy pliku bez ścieżki
+        filename=$(basename "$saved_file")
+        echo ""
+        echo "---------------------------------"
+        echo "$filename"
+        echo "---------------------------------"
+    else
+        echo ""
+        echo "---------------------------------"
+        echo "         !!! BŁĄD !!!            "
+        echo "   Pobieranie się nie udało :(   "
+        echo "---------------------------------"
+    fi
     echo ""
     # brak sleep i brak clear – wszystko zostaje na ekranie
 done
