@@ -50,18 +50,9 @@ while true; do
     echo "Pobieranie: $input"
     echo ""
 
-    # Pobieranie z zapisem nazwy pliku
-    output=$(yt-dlp -x --ignore-errors --audio-format mp3 --embed-thumbnail --add-metadata \
-        --print after_move:filepath "$input" 2>&1)
-    
-    # Wyciągnięcie nazw plików z outputu (linie zawierające .mp3)
-    echo ""
-    echo "---------------------------------"
-    echo "Pobrano pomyślnie:"
-    echo "$output" | grep -E '\.mp3$' | while read -r line; do
-        echo "  ✓ $(basename "$line")"
-    done
-    echo "---------------------------------"
+    # Pobieranie
+    yt-dlp -x --ignore-errors --audio-format mp3 --embed-thumbnail --add-metadata "$input"
+
     echo ""
     echo ""
 
