@@ -36,6 +36,6 @@ source .bashrc
 sleep 1
 
 echo ""
-echo "✅ Instalacja zakończona!"
-echo "📌 Teraz wpisz 'ytdl' żeby odpalić pobieranie"
-echo "💡 Po wpisaniu 'x' w menu - Termux się zamknie"
+echo "Instalacja zakończona!"
+echo "Teraz wpisz 'ytdl' żeby odpalić pobieranie"
+echo " Po wpisaniu 'x' w menu - Termux się zamknie"
