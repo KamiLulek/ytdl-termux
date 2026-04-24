@@ -11,28 +11,6 @@ cd ~/storage/music || { echo "Błąd: Brak dostępu do storage :d"; exit 1; }
 
 clear
 
-# Funkcja wyświetlająca informację o pobranym pliku
-show_output() {
-    local FILE="$1"
-    
-    if [ -n "$FILE" ] && [ -f "$FILE" ]; then
-        echo ""
-        echo "════════════════════════════════════════"
-        echo " $(basename "$FILE")"
-        echo "════════════════════════════════════════"
-        echo ""
-    else
-        echo ""
-        echo "╔══════════════════════════════════════╗"
-        echo "║      Błąd: Nie znaleziono pliku!     ║"
-        echo "╚══════════════════════════════════════╝"
-        echo ""
-    fi
-}
-
-# Eksportujemy funkcję, żeby była dostępna dla podprocesów
-export -f show_output
-
 # Funkcja sprawdzająca czy to link YouTube
 is_youtube_link() {
     local link="$1"
@@ -87,8 +65,9 @@ while true; do
     echo ""
 
     # Pobieranie i wyświetlenie nazwy pliku
+        # Pobieranie z lepszym wyświetlaniem dla playlist
     yt-dlp -x --ignore-errors --audio-format mp3 --embed-thumbnail --add-metadata \
-        --exec 'bash -c "show_output \"\$0\"" {}' "$input"
+        --exec '~/output.sh {}' "$input"
 done
 EOF
 
