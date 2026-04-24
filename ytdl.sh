@@ -50,46 +50,13 @@ while true; do
     echo "Pobieranie: $input"
     echo ""
 
-    # Tymczasowy plik na logi
-    temp_log=$(mktemp)
-    
-    # Pobieranie - logi widoczne na ekranie i zapisane do pliku
-    yt-dlp -x --audio-format mp3 --embed-thumbnail --add-metadata \
-        "$input" 2>&1 | tee "$temp_log"
-    
-    # Sprawdzenie czy pobieranie się udało (sprawdzamy kod wyjścia yt-dlp, nie tee)
-    if [ ${PIPESTATUS[0]} -eq 0 ]; then
-        # Wyciągnięcie nazw wszystkich pobranych plików
-        echo ""
-        echo "---------------------------------"
-        echo "         !!! POBRANE !!!         "
-        
-        # Szukamy nazw plików mp3 w logach
-        grep -E "\[ExtractAudio\]|Destination:|\[download\] Destination:" "$temp_log" | \
-            grep -oE '[^"]+\.mp3' | \
-            while read -r file; do
-                # Wyciągnięcie tylko nazwy pliku bez ścieżki
-                basename "$file"
-            done | \
-            sed 's/^/➡️ /'
-        
-        # Jeśli nic nie znaleziono, spróbuj alternatywnego wzorca
-        if ! grep -q "\.mp3" "$temp_log"; then
-            echo "✅ Pobrano pomyślnie!"
-        fi
-        
-        echo "---------------------------------"
-    else
-        echo ""
-        echo "---------------------------------"
-        echo "         !!! BŁĄD !!!           "
-        echo "Pobieranie się nie udało :("
-        echo "---------------------------------"
-    fi
-    
-    # Usuń tymczasowy plik
-    rm -f "$temp_log"
-    
+    # Pobieranie
+    yt-dlp -x --verbose --no-check-certificate --ignore-errors --audio-format mp3 --embed-thumbnail --add-metadata "$input"
+
     echo ""
-    # brak sleep i brak clear – wszystko zostaje na ekranie
+    echo "---------------------------------"
+    echo "         !!! POBRANE !!!         "
+    echo "---------------------------------"
+    echo ""
+
 done
