@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/storage/music || { echo "Błąd: Brak dostępu do storage :d"; exit 1; }
+cd ~/storage/shared/music-ytdl || { echo "Błąd: Brak dostępu do storage :d"; exit 1; }
 
 clear
 
@@ -34,6 +34,8 @@ while true; do
     # Sprawdzenie czy użytkownik nic nie wpisał (sam Enter)
     if [ -z "$input" ]; then
         echo ""
+        clear
+        echo ""
         echo "════════════════════════════════════════"
         echo "         BRAK lub ZłY link YT!          "
         echo "════════════════════════════════════════"
@@ -43,6 +45,8 @@ while true; do
 
     # Sprawdzenie czy to poprawny link YouTube
     if ! is_youtube_link "$input"; then
+        echo ""
+        clear
         echo ""
         echo "════════════════════════════════════════"
         echo "         BRAK lub ZłY link YT!          "
@@ -62,5 +66,5 @@ while true; do
     # Pobieranie i wyświetlenie nazwy pliku
         # Pobieranie z lepszym wyświetlaniem dla playlist
     yt-dlp -x --ignore-errors --audio-format mp3 --embed-thumbnail --add-metadata \
-        --exec '~/output.sh {}' "$input"
+        --exec '~/ytdl-scr/output.sh {}' "$input"
 done
