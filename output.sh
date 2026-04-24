@@ -6,10 +6,9 @@ FILE="$1"
 if [ -n "$FILE" ] && [ -f "$FILE" ]; then
     echo ""
     echo "════════════════════════════════════════"
-    echo "║              POBRANO!                ║"
-    echo "╠══════════════════════════════════════╣"
-    echo "║  $(basename "$FILE")"
+    echo "  $(basename "$FILE")"
     echo "════════════════════════════════════════"
+
     echo ""
 else
     echo "⚠️ Błąd: Nie znaleziono pliku: $1"
