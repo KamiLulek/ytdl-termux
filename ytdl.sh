@@ -57,6 +57,7 @@ while true; do
     echo "---------------------------------"
     echo "Pobrano: $(basename "$file")"
     echo "---------------------------------"
-    echo ""
-	
+	echo ""
+done
+
 done
