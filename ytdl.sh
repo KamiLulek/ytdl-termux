@@ -2,12 +2,16 @@
 
 cd ~/storage/music || { echo "Błąd: Brak dostępu do storage :d"; exit 1; }
 
+clear
+
 # Pętla działająca w nieskończoność
 while true; do
     echo ""
-    echo "===== YT-DLP MP3 DOWNLOADER ====="
+    echo "---------------------------------"
+    echo "      YT-DLP MP3 DOWNLOADER      "
     echo "Wklej link do YT, 'x' zeby wyjsc."
     echo "---------------------------------"
+    echo ""
     
     read -r input
 
@@ -30,8 +34,10 @@ while true; do
     # Pobieranie z pełnym wypasem (jakość, okładka, metadane)
     yt-dlp -x --audio-format mp3 --embed-thumbnail --add-metadata "$input"
 
+    echo ""
     echo "---------------------------------"
-    echo "GOTOWE!"
+    echo "         !!! POBRANE !!!         "
     echo "---------------------------------"
+    echo ""
     # brak sleep i brak clear – wszystko zostaje na ekranie
 done
