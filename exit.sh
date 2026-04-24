@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Uruchom główny skrypt
-~/ytdl.sh
+# Opóźnienie 3 sekund
+sleep 3
 
-# Po wyjściu z ytdl.sh (po wpisaniu 'x') - zamknij Termuxa
+# Zamknięcie Termuxa
 exit
