@@ -19,13 +19,12 @@ curl -o ~/exit.sh https://raw.githubusercontent.com/KamiLulek/ytdl-termux/refs/h
 chmod +x ~/ytdl.sh
 chmod +x ~/exit.sh
 
-# Dodanie aliasu do .bashrc
+# Dodanie aliasu do .bashrc (tylko jeśli go tam jeszcze nie ma)
 if ! grep -q "alias ytdl=" ~/.bashrc; then
-    echo "alias ytdl='~/exit.sh'" >> ~/.bashrc
-    echo "✅ Alias dodany do .bashrc"
+    echo "alias ytdl='~/ytdl.sh'" >> ~/.bashrc
+    echo "Alias dodany do .bashrc"
 else
-    sed -i 's/alias ytdl=.*/alias ytdl='"'"'~/exit.sh'"'"'/' ~/.bashrc
-    echo "✅ Alias zaktualizowany"
+    echo "Alias już istnieje, pomijam dopisywanie"
 fi
 
 # Odświeżenie sesji
