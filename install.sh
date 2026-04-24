@@ -2,12 +2,18 @@
 
 # Konfiguracja storage
 termux-setup-storage
-sleep 2
+sleep 1
 
 # Instalacja zależności
 pkg update -y && pkg upgrade -y
 pkg install python ffmpeg curl -y
 pip install yt-dlp
+
+sleep 1
+
+cd ~
+
+sleep 1
 
 # Pobranie ytdl.sh z GitHub raw
 curl -o ~/ytdl.sh https://raw.githubusercontent.com/KamiLulek/ytdl-termux/refs/heads/main/ytdl.sh
@@ -19,16 +25,19 @@ curl -o ~/exit.sh https://raw.githubusercontent.com/KamiLulek/ytdl-termux/refs/h
 chmod +x ~/ytdl.sh
 chmod +x ~/exit.sh
 
+sleep 1
+
 # Dodanie aliasu do .bashrc (tylko jeśli go tam jeszcze nie ma)
-if ! grep -q "alias ytdl=" ~/.bashrc; then
-    echo "alias ytdl='~/ytdl.sh'" >> ~/.bashrc
-    echo "Alias dodany do .bashrc"
-else
-    echo "Alias już istnieje, pomijam dopisywanie"
-fi
+cat << 'EOF' > .bashrc
+alias ytdl='./ytdl.sh'
+EOF
+
+sleep 1
 
 # Odświeżenie sesji
-source ~/.bashrc
+source .bashrc
+
+sleep 1
 
 echo ""
 echo "✅ Instalacja zakończona!"
