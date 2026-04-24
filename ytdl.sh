@@ -33,13 +33,15 @@ while true; do
 
     # Sprawdzenie czy użytkownik nic nie wpisał (sam Enter)
     if [ -z "$input" ]; then
-        echo "Nie wpisałeś linku"
+        echo ""
+        echo "BRAK lub ZłY link YT!"
         continue
     fi
 
     # Sprawdzenie czy to poprawny link YouTube
     if ! is_youtube_link "$input"; then
-        echo "To nie jest poprawny link YouTube!"
+        echo ""
+        echo "BRAK lub ZłY link YT!"
         continue
     fi
 
