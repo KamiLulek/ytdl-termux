@@ -82,6 +82,7 @@ while true; do
 
     # Sprawdzenie czy użytkownik nic nie wpisał (sam Enter)
     if [ -z "$input" ]; then
+        echo ""
         clear
         echo ""
         echo "════════════════════════════════════════"
@@ -93,6 +94,7 @@ while true; do
 
     # Sprawdzenie czy to poprawny link YouTube
     if ! is_youtube_link "$input"; then
+        echo ""
         clear
         echo ""
         echo "════════════════════════════════════════"
