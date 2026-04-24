@@ -82,6 +82,7 @@ while true; do
 
     # Sprawdzenie czy użytkownik nic nie wpisał (sam Enter)
     if [ -z "$input" ]; then
+        clear
         echo ""
         echo "════════════════════════════════════════"
         echo "         BRAK lub ZłY link YT!          "
@@ -92,6 +93,7 @@ while true; do
 
     # Sprawdzenie czy to poprawny link YouTube
     if ! is_youtube_link "$input"; then
+        clear
         echo ""
         echo "════════════════════════════════════════"
         echo "         BRAK lub ZłY link YT!          "
@@ -120,6 +122,7 @@ chmod +x ~/ytdl-scr/ytdl.sh
 
 sleep 0
 
+clear
 echo ""
 echo "════════════════════════════════════════"
 echo "          Instalacja zakończona         "
@@ -127,4 +130,4 @@ echo "        Wpisz 'ytdl' żeby odpalić       "
 echo "════════════════════════════════════════"
 echo ""
 
-sleep 2
+sleep 0
