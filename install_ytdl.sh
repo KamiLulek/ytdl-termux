@@ -1,5 +1,9 @@
 #!/bin/bash
 
+cd ~
+
+sleep 0
+
 # Pobranie ytdl.sh z GitHub raw
 curl -o ~/ytdl.sh https://raw.githubusercontent.com/KamiLulek/ytdl-termux/refs/heads/main/ytdl.sh
 
