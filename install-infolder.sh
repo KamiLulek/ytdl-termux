@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# Konfiguracja storage
+termux-setup-storage
+sleep 1
+
+# Instalacja zależności
+pkg update -y && pkg upgrade -y
+pkg install python ffmpeg curl -y
+pip install yt-dlp
+
+sleep 1
+
 cd ~
 
 # Dodanie aliasu do .bashrc (tylko jeśli go tam jeszcze nie ma)
