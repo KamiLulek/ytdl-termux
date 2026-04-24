@@ -27,9 +27,9 @@ source .bashrc
 sleep 0
 
 echo ""
-echo "---------------------------------"
-echo "      Instalacja zakończona      "
-echo "---------------------------------"
-echo "    Wpisz 'ytdl' żeby odpalić    "
-echo "---------------------------------"
+echo "════════════════════════════════════════"
+echo "          Instalacja zakończona         "
+echo "════════════════════════════════════════"
+echo "        Wpisz 'ytdl' żeby odpalić       "
+echo "════════════════════════════════════════"
 echo ""
