@@ -18,12 +18,8 @@ sleep 1
 # Pobranie ytdl.sh z GitHub raw
 curl -o ~/ytdl.sh https://raw.githubusercontent.com/KamiLulek/ytdl-termux/refs/heads/main/ytdl.sh
 
-# Pobranie exit.sh z GitHub raw
-curl -o ~/exit.sh https://raw.githubusercontent.com/KamiLulek/ytdl-termux/refs/heads/main/exit.sh
-
 # Nadanie uprawnień
 chmod +x ~/ytdl.sh
-chmod +x ~/exit.sh
 
 sleep 1
 
