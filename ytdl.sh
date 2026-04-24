@@ -26,7 +26,9 @@ while true; do
 
     # Sprawdzenie czy użytkownik chce wyjść
     if [ "$input" = "x" ] || [ "$input" = "X" ]; then
+        echo ""
         echo "Zamykam wszystko..."
+        echo ""
         exit 0
     fi
 
