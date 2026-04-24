@@ -13,11 +13,11 @@ while true; do
     read -r input
 
     # Sprawdzenie czy użytkownik chce wyjść
-if [ "$input" = "x" ] || [ "$input" = "X" ]; then
-    echo "👋 Zamykam Termuxa za 3 sekundy..."
-    ~/exit.sh  # BEZ & (nie w tle)
-    exit 0
-fi
+    if [ "$input" = "x" ] || [ "$input" = "X" ]; then
+        echo "Nara! Zamykam... XD"
+        sleep 1
+        exit 0
+    fi
 
     # Sprawdzenie czy użytkownik nic nie wpisał (sam Enter)
     if [ -z "$input" ]; then
@@ -31,5 +31,5 @@ fi
     echo "------------------------------"
     echo "GOTOWE! Plik siedzi w Music :D"
     echo "Wracamy do menu za 2 sekundy..."
-    sleep 1
+    sleep 2
 done
