@@ -22,8 +22,18 @@ while true; do
     echo "Wklej link do YT, 'x' zeby wyjsc."
     echo "---------------------------------"
     echo ""
-    
     read -r input
+    echo ""
+    echo ""
+    echo ""
+    echo ""
+    echo ""
+    echo ""
+    echo ""
+    echo ""
+    echo ""
+    echo ""
+    echo ""
 
     # Sprawdzenie czy użytkownik chce wyjść
     if [ "$input" = "x" ] || [ "$input" = "X" ]; then
