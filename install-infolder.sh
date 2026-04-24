@@ -6,23 +6,17 @@ cd ~
 cat << 'EOF' > .bashrc
 alias ytdl='~/ytdl-scr/ytdl.sh'
 EOF
-
-sleep 0
-
-# Odświeżenie sesji
 source .bashrc
 
 sleep 0
 
-mkdir ytdl-scr
+mkdir ~/storage/shared/music-ytdl
 
-chmod +x ytdl-scr
+mkdir ~/ytdl-scr
+chmod +x ~/ytdl-scr
 
-sleep 0
 
-cd ytdl-scr
-
-cat << 'EOF' > output.sh
+cat << 'EOF' > ~/ytdl-scr/output.sh
 #!/bin/bash
 
 # output.sh - rozbudowana wersja
@@ -46,10 +40,10 @@ EOF
 
 chmod +x ~/ytdl-scr/output.sh
 
-cat << 'EOF' > ytdl.sh
+cat << 'EOF' > ~/ytdl-scr/ytdl.sh
 #!/bin/bash
 
-cd ~/storage/music || { echo "Błąd: Brak dostępu do storage :d"; exit 1; }
+cd ~/storage/shared/music-ytdl || { echo "Błąd: Brak dostępu do storage :d"; exit 1; }
 
 clear
 
