@@ -4,7 +4,7 @@ cd ~
 
 # Dodanie aliasu do .bashrc (tylko jeśli go tam jeszcze nie ma)
 cat << 'EOF' > .bashrc
-alias ytdl='./ytdl-scr/ytdl.sh'
+alias ytdl='~/ytdl-scr/ytdl.sh'
 EOF
 
 sleep 0
