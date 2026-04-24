@@ -23,17 +23,6 @@ while true; do
     echo "---------------------------------"
     echo ""
     read -r input
-    echo ""
-    echo ""
-    echo ""
-    echo ""
-    echo ""
-    echo ""
-    echo ""
-    echo ""
-    echo ""
-    echo ""
-    echo ""
 
     # Sprawdzenie czy użytkownik chce wyjść
     if [ "$input" = "x" ] || [ "$input" = "X" ]; then
