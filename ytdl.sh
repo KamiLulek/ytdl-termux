@@ -15,7 +15,7 @@ while true; do
     # Sprawdzenie czy użytkownik chce wyjść
     if [ "$input" = "x" ] || [ "$input" = "X" ]; then
         echo "Nara! Zamykam... XD"
-        sleep 1
+        sleep 0
         exit 0
     fi
 
@@ -31,5 +31,5 @@ while true; do
     echo "------------------------------"
     echo "GOTOWE! Plik siedzi w Music :D"
     echo "Wracamy do menu za 2 sekundy..."
-    sleep 2
+    sleep 0
 done
