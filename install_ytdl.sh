@@ -44,18 +44,27 @@ while true; do
 done
 EOF
 
-# 2. Nadanie uprawnień do wykonywania
+# Nadanie uprawnień
 chmod +x ~/ytdl.sh
 
-# 3. Dodanie aliasu do .bashrc (tylko jeśli go tam jeszcze nie ma)
-if ! grep -q "alias ytdl=" ~/.bashrc; then
-    echo "alias ytdl='~/ytdl.sh'" >> ~/.bashrc
-    echo "Alias dodany do .bashrc"
-else
-    echo "Alias już istnieje, pomijam dopisywanie"
-fi
+sleep 0
 
-# 4. Odświeżenie sesji
-source ~/.bashrc
+# Dodanie aliasu do .bashrc (tylko jeśli go tam jeszcze nie ma)
+cat << 'EOF' > .bashrc
+alias ytdl='./ytdl.sh'
+EOF
 
-echo "Konfiguracja zakończona. Teraz wpisz 'ytdl' żeby odpalić pobieranie!"
+sleep 0
+
+# Odświeżenie sesji
+source .bashrc
+
+sleep 0
+
+echo ""
+echo "---------------------------------"
+echo "      Instalacja zakończona      "
+echo "---------------------------------"
+echo "    Wpisz 'ytdl' żeby odpalić    "
+echo "---------------------------------"
+echo ""
