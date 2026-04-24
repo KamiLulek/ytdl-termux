@@ -4,6 +4,16 @@ cd ~/storage/music || { echo "Błąd: Brak dostępu do storage :d"; exit 1; }
 
 clear
 
+# Funkcja sprawdzająca czy to link YouTube
+is_youtube_link() {
+    local link="$1"
+    if [[ "$link" =~ ^(https?://)?(www\.)?(youtube\.com|youtu\.be)/ ]]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 # Pętla działająca w nieskończoność
 while true; do
     echo ""
@@ -24,6 +34,12 @@ while true; do
     # Sprawdzenie czy użytkownik nic nie wpisał (sam Enter)
     if [ -z "$input" ]; then
         echo "Nie wpisałeś linku"
+        continue
+    fi
+
+    # Sprawdzenie czy to poprawny link YouTube
+    if ! is_youtube_link "$input"; then
+        echo "To nie jest poprawny link YouTube!"
         continue
     fi
 
