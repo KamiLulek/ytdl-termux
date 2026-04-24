@@ -16,9 +16,10 @@ if [ -n "$FILE" ] && [ -f "$FILE" ]; then
     sleep 0
     echo "════════════════════════════════════════"
     echo "                 Pobrano                "
-    echo "════════════════════════════════════════"
+    echo ""
     echo "  $(basename "$FILE")"
     echo "════════════════════════════════════════"
+    echo ""
 
 else
     echo "Błąd: Nie znaleziono pliku: $1"
@@ -81,6 +82,8 @@ while true; do
         continue
     fi
 
+    clear
+    
     echo ""
     echo "════════════════════════════════════════"
     echo "               Pobieranie               "
