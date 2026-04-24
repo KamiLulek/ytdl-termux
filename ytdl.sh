@@ -13,11 +13,11 @@ while true; do
     read -r input
 
     # Sprawdzenie czy użytkownik chce wyjść
-    if [ "$input" = "x" ] || [ "$input" = "X" ]; then
-        echo "Nara! Zamykam... XD"
-        sleep 0
-        exit 0
-    fi
+if [ "$input" = "x" ] || [ "$input" = "X" ]; then
+    echo "👋 Zamykam za 1 sekundy..."
+    sleep 1
+    pkill -u $USER  # To zabija wszystkie procesy użytkownika w Termuxie i zamyka apkę
+fi
 
     # Sprawdzenie czy użytkownik nic nie wpisał (sam Enter)
     if [ -z "$input" ]; then
