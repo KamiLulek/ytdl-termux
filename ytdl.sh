@@ -51,7 +51,7 @@ while true; do
     echo ""
 
     # Pobieranie z pełnym wypasem (jakość, okładka, metadane)
-    yt-dlp -x --audio-format mp3 --embed-thumbnail --add-metadata "$input"
+    yt-dlp -x --ignore-errors --audio-format mp3 --embed-thumbnail --add-metadata "$input"
 
     echo ""
     echo "---------------------------------"
