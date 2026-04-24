@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Opóźnienie 3 sekund
-sleep 3
+sleep 5
 
 # Zamknięcie Termuxa
 exit
