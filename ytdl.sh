@@ -17,10 +17,10 @@ is_youtube_link() {
 # Pętla działająca w nieskończoność
 while true; do
     echo ""
-    echo "---------------------------------"
-    echo "      YT-DLP MP3 DOWNLOADER      "
-    echo "Wklej link do YT, 'x' zeby wyjsc."
-    echo "---------------------------------"
+    echo "╔══════════════════════════════════════╗"
+    echo "║         YT-DLP MP3 DOWNLOADER        ║"
+    echo "║   Wklej link do YT, 'x' zeby wyjsc.  ║"
+    echo "╚══════════════════════════════════════╝"
     echo ""
     read -r input
 
