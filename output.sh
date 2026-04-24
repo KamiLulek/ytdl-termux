@@ -7,7 +7,8 @@ if [ -n "$FILE" ] && [ -f "$FILE" ]; then
     sleep 0
     clear
     sleep 0
-    echo ""
+    echo "════════════════════════════════════════"
+    echo "                 Pobrano                "
     echo "════════════════════════════════════════"
     echo "  $(basename "$FILE")"
     echo "════════════════════════════════════════"
