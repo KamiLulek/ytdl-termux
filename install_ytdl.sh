@@ -26,7 +26,7 @@ while true; do
     # Sprawdzenie czy użytkownik nic nie wpisał (sam Enter)
     if [ -z "$input" ]; then
         echo "Nic nie wpisano! Wracam do menu..."
-        sleep 2
+        sleep 1
         continue
     fi
 
