@@ -10,10 +10,10 @@ pkg install python ffmpeg curl -y
 pip install yt-dlp
 
 # Pobranie ytdl.sh z GitHub raw
-curl -o ~/ytdl.sh https://raw.githubusercontent.com/TWOJA_NAZWA_UZYTKOWNIKA/TWOJE_REPO/main/ytdl.sh
+curl -o ~/ytdl.sh https://raw.githubusercontent.com/KamiLulek/ytdl-termux/refs/heads/main/ytdl.sh
 
 # Pobranie exit.sh z GitHub raw
-curl -o ~/exit.sh https://raw.githubusercontent.com/TWOJA_NAZWA_UZYTKOWNIKA/TWOJE_REPO/main/exit.sh
+curl -o ~/exit.sh https://raw.githubusercontent.com/KamiLulek/ytdl-termux/refs/heads/main/exit.sh
 
 # Nadanie uprawnień
 chmod +x ~/ytdl.sh
