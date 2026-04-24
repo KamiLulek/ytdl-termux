@@ -50,13 +50,13 @@ while true; do
     echo "Pobieranie: $input"
     echo ""
 
-    # Pobieranie z pełnym wypasem (jakość, okładka, metadane)
-    yt-dlp -x --ignore-errors --audio-format mp3 --embed-thumbnail --add-metadata "$input"
+    # Pobieranie i wyświetlenie nazwy pliku
+        # Pobieranie z lepszym wyświetlaniem dla playlist
+    yt-dlp -x --ignore-errors --audio-format mp3 --embed-thumbnail --add-metadata \
+        --exec 'echo "---------------------------------"; 
+		echo "✓ Pobrano: $(basename {})"; 
+		echo "---------------------------------"' "$input"
 
     echo ""
-    echo "---------------------------------"
-    echo "         !!! POBRANE !!!         "
-    echo "---------------------------------"
     echo ""
-    # brak sleep i brak clear – wszystko zostaje na ekranie
 done
