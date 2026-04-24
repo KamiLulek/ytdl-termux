@@ -108,6 +108,10 @@ chmod +x ~/ytdl-scr/ytdl.sh
 
 sleep 0
 
+cd ~
+
+sleep 0
+
 # Dodanie aliasu do .bashrc (tylko jeśli go tam jeszcze nie ma)
 cat << 'EOF' > .bashrc
 alias ytdl='./ytdl-scr/ytdl.sh'
