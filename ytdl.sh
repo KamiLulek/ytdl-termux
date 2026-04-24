@@ -36,6 +36,7 @@ while true; do
     if [ -z "$input" ]; then
         echo ""
         echo "BRAK lub ZłY link YT!"
+        echo ""
         continue
     fi
 
@@ -43,6 +44,7 @@ while true; do
     if ! is_youtube_link "$input"; then
         echo ""
         echo "BRAK lub ZłY link YT!"
+        echo ""
         continue
     fi
 
@@ -54,7 +56,4 @@ while true; do
         # Pobieranie z lepszym wyświetlaniem dla playlist
     yt-dlp -x --ignore-errors --audio-format mp3 --embed-thumbnail --add-metadata \
         --exec '~/output.sh {}' "$input"
-
-    echo ""
-    echo ""
 done
