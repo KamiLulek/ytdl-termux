@@ -1,10 +1,33 @@
 #!/bin/bash
 
+# Konfiguracja storage
+termux-setup-storage
+sleep 1
+
+# Instalacja zależności
+pkg update -y && pkg upgrade -y
+pkg install python ffmpeg curl -y
+pip install yt-dlp
+
+sleep 1
+
 cd ~
+
+# Dodanie aliasu do .bashrc (tylko jeśli go tam jeszcze nie ma)
+cat << 'EOF' > .bashrc
+alias ytdl='~/ytdl-scr/ytdl.sh'
+EOF
+source .bashrc
 
 sleep 0
 
-cat << 'EOF' > output.sh
+mkdir ~/storage/shared/music-ytdl
+
+mkdir ~/ytdl-scr
+chmod +x ~/ytdl-scr
+
+
+cat << 'EOF' > ~/ytdl-scr/output.sh
 #!/bin/bash
 
 # output.sh - rozbudowana wersja
@@ -26,12 +49,12 @@ else
 fi
 EOF
 
-chmod +x ~/output.sh
+chmod +x ~/ytdl-scr/output.sh
 
-cat << 'EOF' > ytdl.sh
+cat << 'EOF' > ~/ytdl-scr/ytdl.sh
 #!/bin/bash
 
-cd ~/storage/music || { echo "Błąd: Brak dostępu do storage :d"; exit 1; }
+cd ~/storage/shared/music-ytdl || { echo "Błąd: Brak dostępu do storage :d"; exit 1; }
 
 clear
 
@@ -65,6 +88,8 @@ while true; do
     # Sprawdzenie czy użytkownik nic nie wpisał (sam Enter)
     if [ -z "$input" ]; then
         echo ""
+        clear
+        echo ""
         echo "════════════════════════════════════════"
         echo "         BRAK lub ZłY link YT!          "
         echo "════════════════════════════════════════"
@@ -74,6 +99,8 @@ while true; do
 
     # Sprawdzenie czy to poprawny link YouTube
     if ! is_youtube_link "$input"; then
+        echo ""
+        clear
         echo ""
         echo "════════════════════════════════════════"
         echo "         BRAK lub ZłY link YT!          "
@@ -93,27 +120,16 @@ while true; do
     # Pobieranie i wyświetlenie nazwy pliku
         # Pobieranie z lepszym wyświetlaniem dla playlist
     yt-dlp -x --ignore-errors --audio-format mp3 --embed-thumbnail --add-metadata \
-        --exec '~/output.sh {}' "$input"
+        --exec '~/ytdl-scr/output.sh {}' "$input"
 done
 EOF
 
 # Nadanie uprawnień
-chmod +x ~/ytdl.sh
+chmod +x ~/ytdl-scr/ytdl.sh
 
 sleep 0
 
-# Dodanie aliasu do .bashrc (tylko jeśli go tam jeszcze nie ma)
-cat << 'EOF' > .bashrc
-alias ytdl='./ytdl.sh'
-EOF
-
-sleep 0
-
-# Odświeżenie sesji
-source .bashrc
-
-sleep 0
-
+clear
 echo ""
 echo "════════════════════════════════════════"
 echo "          Instalacja zakończona         "
@@ -121,4 +137,4 @@ echo "        Wpisz 'ytdl' żeby odpalić       "
 echo "════════════════════════════════════════"
 echo ""
 
-sleep 2
+sleep 0
